@@ -55,12 +55,24 @@ public class Loesung_G33 implements PVL4 {
         }
         //System.out.println(sortedAlphabet);
 
+
+        // Erstellen des Baums
         Tree tree = new Tree();
 
-        for (int i = sortedAlphabet.size(); i == 0; i--) {
-
+        for (int i = sortedAlphabet.size(); i > 0; i--) {
             if (i < sortedProbabiliets.size()) {
+                Node leftNode = new Node(sortedProbabiliets.get(i), (byte) 1);
 
+                if (i < sortedAlphabet.size() - 1) {
+                    leftNode.setBackNode(tree.nodes.get(i + 1).get(0));
+                    tree.addNode(leftNode);
+
+                    Node rightNode = new Node(sortedAlphabet.get(--i), (byte) 0);
+                    rightNode.setBackNode(tree.nodes.get(i + 1).get(0));
+                    tree.addNode(rightNode);
+                } else {
+                    tree.addNode(leftNode);
+                }
             }
         }
     }

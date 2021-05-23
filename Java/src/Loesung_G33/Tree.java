@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Tree {
 
-    List<List<Node>> nodes;
+    public List<List<Node>> nodes;
 
     public Tree() {
         nodes = new ArrayList<>();
     }
 
     public void addNode(Node node) {
-        
+
     }
 
 }
